@@ -16,7 +16,6 @@ _global_script_class_icons={
 [application]
 
 config/name="ball platformer"
-run/main_scene="res://levels/Gameplay.tscn"
 config/icon="res://icon.png"
 
 [gdnative]
