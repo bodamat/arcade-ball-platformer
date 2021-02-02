@@ -16,11 +16,20 @@ _global_script_class_icons={
 [application]
 
 config/name="ball platformer"
+run/main_scene="res://levels/Gameplay.tscn"
 config/icon="res://icon.png"
 
 [gdnative]
 
 singletons=[  ]
+
+[locale]
+
+translation_remaps={
+
+}
+locale_filter=[ 1, [ "en", "pl", "ru", "uk" ] ]
+translations=PoolStringArray(  )
 
 [rendering]
 

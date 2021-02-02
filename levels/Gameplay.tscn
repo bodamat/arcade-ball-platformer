@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://levels/player.gd" type="Script" id=1]
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 10, 0.25, 10 )
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 20, 0.5, 20 )
+
+[sub_resource type="SphereShape" id=4]
+radius = 0.5
+
+[sub_resource type="SphereMesh" id=3]
+radius = 0.5
+height = 1.0
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Floor" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Floor"]
+shape = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Floor/CollisionShape"]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Player" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.899114, 1.29832, 1.08846 )
+mass = 10.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Player"]
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Player/CollisionShape"]
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -0.169397, 0.435864, -0.883927, 0, 0.896889, 0.442255, 0.985548, 0.0749168, -0.15193, -6.58961, 3.23587, 0.412383 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.857005, 0.515307, 0, -0.515307, 0.857005, 0, 6.32735, 4.34729 )
+shadow_enabled = true
