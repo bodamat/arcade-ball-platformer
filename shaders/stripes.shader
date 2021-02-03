@@ -1,4 +1,5 @@
 shader_type spatial;
+render_mode cull_back, depth_draw_always, diffuse_burley, specular_schlick_ggx;
 
 uniform vec4 color1 : hint_color = vec4(1,1,1,1);
 uniform vec4 color2 : hint_color = vec4(0,0,0,1);
@@ -14,7 +15,7 @@ void fragment() {
 	pos.y = mix(UV.y, 1.0 - UV.x, direction);
 	
 	pos.x += sin(pos.y * warp_tiling * PI * 2.0) * warp_scale;
-	pos.x *= tiling; 
+	pos.x *= tiling;
 	
 	float value = floor(fract(pos.x) + 0.5);
 	vec4 result_color = mix(color1, color2, value);
