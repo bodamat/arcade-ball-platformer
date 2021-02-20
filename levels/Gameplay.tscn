@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://levels/player.gd" type="Script" id=1]
-[ext_resource path="res://scripts/camera.gd" type="Script" id=2]
+[ext_resource path="res://scenes/ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 
 [sub_resource type="PhysicsMaterial" id=7]
@@ -13,19 +12,6 @@ extents = Vector3( 10, 0.25, 10 )
 size = Vector3( 20, 0.5, 20 )
 
 [sub_resource type="SpatialMaterial" id=8]
-albedo_texture = ExtResource( 3 )
-
-[sub_resource type="PhysicsMaterial" id=5]
-bounce = 0.333
-
-[sub_resource type="SphereShape" id=3]
-radius = 0.5
-
-[sub_resource type="SphereMesh" id=4]
-radius = 0.5
-height = 1.0
-
-[sub_resource type="SpatialMaterial" id=6]
 albedo_texture = ExtResource( 3 )
 
 [node name="Spatial" type="Spatial"]
@@ -43,28 +29,8 @@ shape = SubResource( 1 )
 mesh = SubResource( 2 )
 material/0 = SubResource( 8 )
 
-[node name="ball" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.899114, 1.29832, 1.08846 )
-mass = 10.0
-physics_material_override = SubResource( 5 )
-linear_damp = 0.7
-angular_damp = 1.5
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
-speed = 200.0
-
-[node name="CollisionShape" type="CollisionShape" parent="ball"]
-shape = SubResource( 3 )
-
-[node name="MeshInstance" type="MeshInstance" parent="ball/CollisionShape"]
-mesh = SubResource( 4 )
-material/0 = SubResource( 6 )
-
-[node name="Camera" type="Camera" parent="ball"]
-transform = Transform( -4.37114e-08, 0.275822, -0.961209, 0, 0.961209, 0.275822, 1, 1.20566e-08, -4.20158e-08, 1.19209e-07, 1.36454, 2.15602 )
-script = ExtResource( 2 )
+[node name="ball" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.091531, 1, -0.000397682 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.857005, 0.515307, 0, -0.515307, 0.857005, 0, 6.32735, 4.34729 )
