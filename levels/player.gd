@@ -1,24 +1,20 @@
 extends RigidBody
 
-export var SPEED := 10.0
-export(NodePath) onready var camera = get_node(camera) as Camera
+export var speed := 100.0
+
+func get_move_direciton()->Vector3:
+	var direction = Vector3(
+		Input.get_action_strength("move_forward")-Input.get_action_strength("move_backwards"),
+		0,
+		Input.get_action_strength("move_right")-Input.get_action_strength("move_left")
+	)
+	
+	if direction.x!=0 and direction.z!=0:
+		direction/=2
+	return direction
+
+
 
 func _physics_process(delta):
-	var torque := Vector3(0, 0, 0)
-	
-	if Input.is_action_pressed("move_forward"):
-		torque.z = -1
-	elif Input.is_action_pressed("move_backwards"):
-		torque.z = 1
-	
-	if Input.is_action_pressed("move_right"):
-		torque.x = -1
-	elif Input.is_action_pressed("move_left"):
-		torque.x = 1
-	
-	torque *= SPEED
-	
-	torque.z *= camera.get_global_transform().basis.z
-	torque.x *= camera.get_global_transform().basis.x
-	
-	add_torque(torque)
+	var direction = get_move_direciton()
+	apply_central_impulse(direction*speed*delta)
