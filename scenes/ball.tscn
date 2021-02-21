@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://levels/player.gd" type="Script" id=1]
+[ext_resource path="res://scripts/camera.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://scripts/ballCheckGround.gd" type="Script" id=4]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.5
+bounce = 0.4
+
+[sub_resource type="SphereShape" id=2]
+radius = 0.5
+
+[sub_resource type="SphereMesh" id=3]
+radius = 0.5
+height = 1.0
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_texture = ExtResource( 3 )
+
+[node name="ball" type="RigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+mass = 500.0
+physics_material_override = SubResource( 1 )
+gravity_scale = 1.5
+linear_damp = 0.7
+angular_damp = 1.5
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="CollisionShape"]
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -4.3587e-08, 0.347508, -0.937677, 3.29568e-09, 0.937677, 0.347508, 1, 1.20566e-08, -4.20158e-08, -6, 3, 0 )
+script = ExtResource( 2 )
+
+[node name="RayCast" type="RayCast" parent="."]
+enabled = true
+script = ExtResource( 4 )
