@@ -23,11 +23,11 @@ func stop_fall() -> void:
 	falling = false
 
 
-func _on_Trigger_body_entered(body: Node):
-	if body.is_in_group("player"):
-		$Timer.start(fall_wait_time)
-
-
 func _on_Timer_timeout():
 	if not falling:
 		begin_fall()
+
+
+func _on_PlatformTrigger_body_entered(body):
+	if body.is_in_group("player"):
+		$Timer.start(fall_wait_time)

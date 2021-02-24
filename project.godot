@@ -23,6 +23,11 @@ config/icon="res://icon.png"
 
 singletons=[  ]
 
+[layer_names]
+
+3d_physics/layer_2="platforms"
+3d_physics/layer_3="player"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
