@@ -4,13 +4,12 @@ var CheckpointPlatform = preload("res://scenes/platforms/CheckpointPlatform.tscn
 
 export var speed := 7000.0
 export var jump_power := 4000.0
-var current_checkpoint = Vector3(0,1,0)
+var current_checkpoint := Vector3(0,1,0)
 
 func respawn():
-	if current_checkpoint is Vector3:
-		mode = MODE_STATIC
-		translation = current_checkpoint
-		mode = MODE_RIGID
+	mode = MODE_STATIC
+	translation = current_checkpoint
+	mode = MODE_RIGID
 
 func dead():
 	respawn()
