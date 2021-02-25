@@ -29,5 +29,5 @@ func _on_Timer_timeout():
 
 
 func _on_PlatformTrigger_body_entered(body):
-	if body.is_in_group("player"):
+	if body.get_collision_layer_bit(2):
 		$Timer.start(fall_wait_time)
