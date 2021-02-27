@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/ball.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/platforms/FallPlatform.tscn" type="PackedScene" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://scenes/platforms/Platform.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/platforms/CheckpointPlatform.tscn" type="PackedScene" id=5]
 
 [sub_resource type="PhysicsMaterial" id=1]
 
@@ -17,6 +20,8 @@ albedo_texture = ExtResource( 3 )
 [node name="Spatial" type="Spatial"]
 
 [node name="Floor" type="StaticBody" parent="."]
+collision_layer = 2
+collision_mask = 0
 physics_material_override = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -29,9 +34,32 @@ shape = SubResource( 2 )
 mesh = SubResource( 3 )
 material/0 = SubResource( 4 )
 
-[node name="ball" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.091531, 1, -0.000397682 )
-
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.857005, 0.515307, 0, -0.515307, 0.857005, 0, 6.32735, 4.34729 )
 shadow_enabled = true
+
+[node name="Spatial" type="Spatial" parent="."]
+
+[node name="FallPlatform" parent="Spatial" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0 )
+
+[node name="FallPlatform2" parent="Spatial" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, -2 )
+
+[node name="Platform" parent="Spatial" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 0 )
+
+[node name="Platform2" parent="Spatial" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -2 )
+
+[node name="Platform3" parent="Spatial" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, -2 )
+
+[node name="Checkpoint" parent="Spatial" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -2 )
+
+[node name="Checkpoint2" parent="Spatial" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, -2 )
+
+[node name="ball" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.349, 1, -0.000397682 )

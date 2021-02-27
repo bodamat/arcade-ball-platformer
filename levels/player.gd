@@ -1,7 +1,18 @@
 extends RigidBody
 
+var CheckpointPlatform = preload("res://scenes/platforms/CheckpointPlatform.tscn")
+
 export var speed := 7000.0
 export var jump_power := 4000.0
+var current_checkpoint := Vector3(0,1,0)
+
+func respawn():
+	mode = MODE_STATIC
+	translation = current_checkpoint
+	mode = MODE_RIGID
+
+func dead():
+	respawn()
 
 func is_on_floor()->bool:
 	return $RayCast.is_colliding()
@@ -21,5 +32,8 @@ func get_move_direciton()->Vector3:
 	return direction
 
 func _physics_process(delta):
-	var direction = get_move_direciton()
-	apply_central_impulse(direction*speed*delta + Vector3(0,get_jump()*jump_power,0))
+	if translation.y<-5:
+		dead()
+	else:
+		var direction = get_move_direciton()
+		apply_central_impulse(direction*speed*delta + Vector3(0,get_jump()*jump_power,0))
