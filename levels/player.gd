@@ -9,6 +9,7 @@ var current_checkpoint := Vector3(0,1,0)
 
 func _ready():
 	GameEvents.connect("checkpoint", self, "set_current_checkpoint")
+	GameEvents.connect("dead", self, "dead")
 
 func set_current_checkpoint(checkpoint_position: Vector3):
 	current_checkpoint = checkpoint_position + Vector3.UP * (sphere_mesh.radius + 0.1)
@@ -32,7 +33,7 @@ func get_move_direciton()->Vector3:
 
 func _physics_process(delta):
 	if translation.y<-5:
-		dead()
+		GameEvents.emit_dead()
 	else:
 		var direction = get_move_direciton()
 		apply_central_impulse(direction*speed*delta + Vector3(0,get_jump()*jump_power,0))
