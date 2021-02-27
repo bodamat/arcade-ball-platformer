@@ -1,16 +1,10 @@
 extends Node
 
+signal dead
+signal checkpoint
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+func emit_dead() -> void:
+	emit_signal("dead")
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func emit_checkpoint(checkpoint_position: Vector3) -> void:
+	emit_signal("checkpoint", checkpoint_position)
