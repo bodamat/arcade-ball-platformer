@@ -22,12 +22,9 @@ func stop_fall() -> void:
 	transform.origin = start_pos
 	falling = false
 
-
 func _on_Timer_timeout():
-	if not falling:
-		begin_fall()
-
+	begin_fall()
 
 func _on_PlatformTrigger_body_entered(body):
-	if body.get_collision_layer_bit(2):
+	if body.get_collision_layer_bit(2) and not falling:
 		$Timer.start(fall_wait_time)
