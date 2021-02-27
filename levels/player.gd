@@ -1,7 +1,5 @@
 extends RigidBody
 
-var CheckpointPlatform = preload("res://scenes/platforms/CheckpointPlatform.tscn")
-
 export var speed := 7000.0
 export var jump_power := 4000.0
 var current_checkpoint := Vector3(0,1,0)
