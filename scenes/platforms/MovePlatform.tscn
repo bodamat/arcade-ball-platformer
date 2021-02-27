@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/platforms/platform_components/PlatformModel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://shaders/stripes.shader" type="Shader" id=2]
+[ext_resource path="res://scripts/platforms/movePlatform.gd" type="Script" id=3]
+[ext_resource path="res://scenes/platforms/platform_components/PlatformTrigger.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Curve3D" id=1]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0017643, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 3.99824, 0, 4, 0, 0, 0, 0, 0, 0, 3.99824, 0, 0 ),
+"tilts": PoolRealArray( 0, 0, 0, 0 )
+}
+
+[sub_resource type="BoxShape" id=2]
+resource_local_to_scene = true
+extents = Vector3( 1, 0.05, 1 )
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 2 )
+shader_param/color1 = Color( 0.988235, 0.286275, 0.145098, 1 )
+shader_param/color2 = Color( 0.839216, 0.12549, 0.0313726, 1 )
+shader_param/tiling = 10.0
+shader_param/direction = 0.4
+shader_param/warp_scale = 0.0
+shader_param/warp_tiling = 1.0
+
+[node name="MovePlatform" type="Path"]
+curve = SubResource( 1 )
+script = ExtResource( 3 )
+
+[node name="PathFollow" type="PathFollow" parent="."]
+transform = Transform( 0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, -0.0017643, 0, 0 )
+rotation_mode = 0
+loop = false
+
+[node name="KinematicBody" type="KinematicBody" parent="PathFollow"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="PlatformModel" parent="PathFollow/KinematicBody" instance=ExtResource( 1 )]
+shape = SubResource( 2 )
+
+[node name="MeshInstance" parent="PathFollow/KinematicBody/PlatformModel" index="0"]
+material/0 = SubResource( 3 )
+
+[node name="PlatformTrigger" parent="PathFollow/KinematicBody" instance=ExtResource( 4 )]
+
+[editable path="PathFollow/KinematicBody/PlatformModel"]
