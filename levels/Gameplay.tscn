@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/platforms/FallPlatform.tscn" type="PackedScene" id=2]
@@ -17,6 +17,12 @@ size = Vector3( 20, 0.5, 20 )
 
 [sub_resource type="SpatialMaterial" id=4]
 albedo_texture = ExtResource( 3 )
+
+[sub_resource type="Curve3D" id=5]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0017643, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 3.99824, 0, 4, 0, 0, 0, 0, 0, 0, 3.99824, 0, 0 ),
+"tilts": PoolRealArray( 0, 0, 0, 0 )
+}
 
 [node name="Spatial" type="Spatial"]
 
@@ -64,6 +70,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, -2 )
 
 [node name="MovePlatform" parent="Platforms" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0018, 0, 2 )
+curve = SubResource( 5 )
 auto_play = true
 
 [node name="ball" parent="." instance=ExtResource( 1 )]
