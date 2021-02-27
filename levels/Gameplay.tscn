@@ -66,9 +66,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, -2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0018, 0, 2 )
 auto_play = true
 
-[node name="MovePlatform2" parent="Platforms" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0018, 0, 2 )
-auto_play = true
-
 [node name="ball" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.349, 1, -0.000397682 )
