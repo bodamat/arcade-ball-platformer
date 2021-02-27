@@ -47,7 +47,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, -2 )
 
 [node name="Platform" parent="Spatial" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0076, 0, -0.000673532 )
 
 [node name="Platform2" parent="Spatial" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -2 )

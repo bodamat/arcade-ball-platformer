@@ -1,15 +1,43 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/platforms/CheckpointPlatform.gd" type="Script" id=1]
-[ext_resource path="res://scenes/platforms/platform_components/CheckpointPlatformModel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/platforms/platform_components/PlatformModel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/platforms/platform_components/PlatformTrigger.tscn" type="PackedScene" id=3]
+[ext_resource path="res://shaders/stripes.shader" type="Shader" id=4]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 4 )
+shader_param/color1 = Color( 0.945098, 0.85098, 0.0666667, 1 )
+shader_param/color2 = Color( 0.717647, 0.721569, 0, 1 )
+shader_param/tiling = 10.0
+shader_param/direction = 0.4
+shader_param/warp_scale = 0.0
+shader_param/warp_tiling = 1.0
+
+[sub_resource type="CylinderMesh" id=2]
+top_radius = 0.5
+bottom_radius = 0.5
+height = 0.02
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.886275, 0.933333, 0.0431373, 1 )
 
 [node name="CheckpointPlatform" type="StaticBody"]
 collision_layer = 2
 collision_mask = 4
 script = ExtResource( 1 )
 
-[node name="CheckpointPlatformModel" parent="." instance=ExtResource( 2 )]
-
 [node name="PlatformTrigger" parent="." instance=ExtResource( 3 )]
+
+[node name="PlatformModel" parent="." instance=ExtResource( 2 )]
+
+[node name="MeshInstance" parent="PlatformModel" index="0"]
+material/0 = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00392038, 0 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
 [connection signal="body_entered" from="PlatformTrigger" to="." method="_on_PlatformTrigger_body_entered"]
+
+[editable path="PlatformModel"]
