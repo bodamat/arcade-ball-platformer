@@ -8,7 +8,7 @@ func _ready():
 	set_as_toplevel(true)
 	
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	var target = get_parent()
 	translation = target.translation + relative_translation
 	if look_at_parent:
