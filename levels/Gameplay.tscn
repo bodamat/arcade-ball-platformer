@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/platforms/FallPlatform.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/platforms/Platform.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/platforms/CheckpointPlatform.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/platforms/MovePlatform.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/platforms/FinishPlatform.tscn" type="PackedScene" id=7]
 
 [sub_resource type="PhysicsMaterial" id=1]
 
@@ -73,5 +74,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0018, 0, 2 )
 curve = SubResource( 5 )
 auto_play = true
 
+[node name="FinishPlatform" parent="Platforms" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0 )
+
 [node name="ball" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.349, 1, -0.000397682 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1361, 0.651629, -0.000397682 )
