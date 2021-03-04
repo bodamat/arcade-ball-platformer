@@ -74,4 +74,4 @@ curve = SubResource( 5 )
 auto_play = true
 
 [node name="ball" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.349, 1, -0.000397682 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1361, 0.651629, -0.000397682 )

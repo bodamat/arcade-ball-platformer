@@ -5,8 +5,6 @@
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://scripts/player/ballCheckGround.gd" type="Script" id=4]
 
-
-
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.5
 bounce = 0.4
