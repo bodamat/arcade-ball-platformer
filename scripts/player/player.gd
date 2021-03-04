@@ -23,9 +23,9 @@ func get_jump()->int:
 
 func get_move_direciton()->Vector3:
 	var direction = Vector3(
-		Input.get_action_strength("move_forward")-Input.get_action_strength("move_backwards"),
+		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 		0,
-		Input.get_action_strength("move_right")-Input.get_action_strength("move_left")
+		Input.get_action_strength("move_backwards") - Input.get_action_strength("move_forward")
 	)
 	direction = direction.normalized()
 	if not is_on_floor():

@@ -5,8 +5,6 @@
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://scripts/player/ballCheckGround.gd" type="Script" id=4]
 
-
-
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.5
 bounce = 0.4
@@ -43,7 +41,7 @@ mesh = SubResource( 3 )
 material/0 = SubResource( 4 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( -4.3587e-08, 0.347508, -0.937677, 3.29568e-09, 0.937677, 0.347508, 1, 1.20565e-08, -4.20158e-08, -4.22211, 2.59808, 0 )
+transform = Transform( 1, 0, 0, 0, 0.937677, 0.347509, 0, -0.347509, 0.937677, 0, 2.5, 4.5 )
 script = ExtResource( 2 )
 
 [node name="RayCast" type="RayCast" parent="."]
