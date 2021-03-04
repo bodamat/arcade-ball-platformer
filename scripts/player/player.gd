@@ -1,4 +1,5 @@
 extends RigidBody
+class_name Player
 
 export var speed := 7000.0
 export var jump_power := 4000.0
