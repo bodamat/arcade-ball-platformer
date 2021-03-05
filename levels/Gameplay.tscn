@@ -28,6 +28,7 @@ _data = {
 [node name="Spatial" type="Spatial"]
 
 [node name="Floor" type="StaticBody" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 collision_layer = 2
 collision_mask = 0
 physics_material_override = SubResource( 1 )
@@ -47,6 +48,7 @@ transform = Transform( 1, 0, 0, 0, 0.857005, 0.515307, 0, -0.515307, 0.857005, 0
 shadow_enabled = true
 
 [node name="Platforms" type="Spatial" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 
 [node name="FallPlatform" parent="Platforms" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0 )
@@ -78,4 +80,4 @@ auto_play = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0 )
 
 [node name="ball" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1361, 0.651629, -0.000397682 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8639, 0.898679, -7.33974 )

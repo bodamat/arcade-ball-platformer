@@ -1,4 +1,5 @@
 extends RigidBody
+class_name Player
 
 export var speed := 7000.0
 export var jump_power := 4000.0
@@ -6,13 +7,15 @@ export var jump_power := 4000.0
 onready var sphere_mesh := $CollisionShape/MeshInstance.mesh as SphereMesh
 
 var current_checkpoint := Vector3(0,1,0)
+var spawn_up_offset := 0.1
 
 func _ready():
 	GameEvents.connect("checkpoint", self, "set_current_checkpoint")
 	GameEvents.connect("dead", self, "dead")
+	current_checkpoint = translation + Vector3.UP * spawn_up_offset
 
 func set_current_checkpoint(checkpoint_position: Vector3):
-	current_checkpoint = checkpoint_position + Vector3.UP * (sphere_mesh.radius + 0.1)
+	current_checkpoint = checkpoint_position + Vector3.UP * (sphere_mesh.radius + spawn_up_offset)
 
 func is_on_floor()->bool:
 	return $RayCast.is_colliding()
@@ -22,9 +25,9 @@ func get_jump()->int:
 
 func get_move_direciton()->Vector3:
 	var direction = Vector3(
-		Input.get_action_strength("move_forward")-Input.get_action_strength("move_backwards"),
+		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 		0,
-		Input.get_action_strength("move_right")-Input.get_action_strength("move_left")
+		Input.get_action_strength("move_backwards") - Input.get_action_strength("move_forward")
 	)
 	direction = direction.normalized()
 	if not is_on_floor():

@@ -20,5 +20,5 @@ func change_material(state: int):
 
 func _on_PlatformTrigger_body_entered(body):
 	if(body.get_collision_layer_bit(2)):
-		GameEvents.emit_checkpoint(self.translation)
+		GameEvents.emit_checkpoint(self.get_global_transform().origin)
 		change_material(STATE.CHECK)

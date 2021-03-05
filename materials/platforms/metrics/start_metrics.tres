@@ -4,8 +4,8 @@
 
 [resource]
 shader = ExtResource( 1 )
-shader_param/color1 = Color( 0.388235, 0.929412, 0.172549, 1 )
-shader_param/color2 = Color( 0.113725, 0.768627, 0, 1 )
+shader_param/color1 = Color( 0.498039, 0.882353, 0.494118, 1 )
+shader_param/color2 = Color( 0, 0, 0, 1 )
 shader_param/tiling = 10.0
 shader_param/direction = 0.4
 shader_param/warp_scale = 0.0
