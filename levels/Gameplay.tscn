@@ -80,4 +80,4 @@ auto_play = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0 )
 
 [node name="ball" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8639, 0.898679, -0.000397682 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8639, 0.898679, -7.33974 )
