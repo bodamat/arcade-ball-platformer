@@ -14,6 +14,7 @@ func _ready():
 
 func set_current_checkpoint(checkpoint_position: Vector3):
 	current_checkpoint = checkpoint_position + Vector3.UP * (sphere_mesh.radius + 0.1)
+	print(current_checkpoint)
 
 func is_on_floor()->bool:
 	return $RayCast.is_colliding()
