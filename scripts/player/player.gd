@@ -14,6 +14,13 @@ func _ready():
 	GameEvents.connect("dead", self, "dead")
 	current_checkpoint = translation + Vector3.UP * spawn_up_offset
 
+func _physics_process(delta):
+	if translation.y<-5:
+		GameEvents.emit_dead()
+	else:
+		var direction = get_move_direciton()
+		apply_central_impulse(direction*speed*delta + Vector3(0,get_jump()*jump_power,0))
+
 func set_current_checkpoint(checkpoint_position: Vector3):
 	current_checkpoint = checkpoint_position + Vector3.UP * (sphere_mesh.radius + spawn_up_offset)
 
@@ -33,13 +40,6 @@ func get_move_direciton()->Vector3:
 	if not is_on_floor():
 		direction/=2
 	return direction
-
-func _physics_process(delta):
-	if translation.y<-5:
-		GameEvents.emit_dead()
-	else:
-		var direction = get_move_direciton()
-		apply_central_impulse(direction*speed*delta + Vector3(0,get_jump()*jump_power,0))
 
 func respawn():
 	mode = MODE_STATIC

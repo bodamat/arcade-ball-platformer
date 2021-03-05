@@ -35,5 +35,6 @@ shape = SubResource( 2 )
 material/0 = ExtResource( 2 )
 
 [node name="PlatformTrigger" parent="PathFollow/KinematicBody" instance=ExtResource( 4 )]
+[connection signal="body_entered" from="PathFollow/KinematicBody/PlatformTrigger" to="." method="_on_PlatformTrigger_body_entered"]
 
 [editable path="PathFollow/KinematicBody/PlatformModel"]
