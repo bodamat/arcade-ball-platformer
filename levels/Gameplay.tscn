@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/platforms/FallPlatform.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/platforms/CheckpointPlatform.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/platforms/MovePlatform.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/platforms/FinishPlatform.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/items/LiveItem.tscn" type="PackedScene" id=8]
 
 [sub_resource type="PhysicsMaterial" id=1]
 
@@ -47,6 +48,14 @@ material/0 = SubResource( 4 )
 transform = Transform( 1, 0, 0, 0, 0.857005, 0.515307, 0, -0.515307, 0.857005, 0, 6.32735, 4.34729 )
 shadow_enabled = true
 
+[node name="items" type="Spatial" parent="."]
+
+[node name="LiveItem" parent="items" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.318002, 0 )
+
+[node name="LiveItem2" parent="items" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8044, 0.0202522, -19.482 )
+
 [node name="Platforms" type="Spatial" parent="."]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 
@@ -81,3 +90,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0 )
 
 [node name="ball" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8639, 0.898679, -7.33974 )
+start_lives_count = 4

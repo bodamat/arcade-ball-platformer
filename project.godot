@@ -79,6 +79,7 @@ jump={
 3d_physics/layer_1="undefined"
 3d_physics/layer_2="platforms"
 3d_physics/layer_3="player"
+3d_physics/layer_4="items"
 
 [rendering]
 

@@ -1,17 +1,25 @@
 extends RigidBody
 class_name Player
 
+onready var sphere_mesh := $CollisionShape/MeshInstance.mesh as SphereMesh
+
 export var speed := 7000.0
 export var jump_power := 4000.0
 
-onready var sphere_mesh := $CollisionShape/MeshInstance.mesh as SphereMesh
+export var max_lives_count := 5
+export var start_lives_count := 3
+var lives : int
 
 var current_checkpoint := Vector3(0,1,0)
 var spawn_up_offset := 0.1
 
 func _ready():
+	lives = start_lives_count
 	GameEvents.connect("checkpoint", self, "set_current_checkpoint")
 	GameEvents.connect("dead", self, "dead")
+	GameEvents.connect("game_over", self, "game_over")
+	GameEvents.connect("respawn", self, "respawn")
+	GameEvents.connect("add_live", self, "add_live")
 	current_checkpoint = translation + Vector3.UP * spawn_up_offset
 
 func _physics_process(delta):
@@ -41,10 +49,24 @@ func get_move_direciton()->Vector3:
 		direction/=2
 	return direction
 
+func add_live():
+	if lives<max_lives_count:
+		lives+=1
+	print("lives: ",lives)
+
 func respawn():
 	mode = MODE_STATIC
 	translation = current_checkpoint
 	mode = MODE_RIGID
-
+	print("lives: ",lives)
+	
+func game_over():
+	print("Game over!")
+	queue_free()
+	
 func dead():
-	respawn()
+	lives-=1
+	if lives<=0:
+		GameEvents.emit_game_over()
+	else:
+		GameEvents.emit_respawn()
