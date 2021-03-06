@@ -1,4 +1,5 @@
 extends RigidBody
+tool
 class_name Player
 
 onready var sphere_mesh := $CollisionShape/MeshInstance.mesh as SphereMesh
@@ -14,7 +15,6 @@ var current_checkpoint := Vector3(0,1,0)
 var spawn_up_offset := 0.1
 
 func _ready():
-	lives = start_lives_count
 	GameEvents.connect("checkpoint", self, "set_current_checkpoint")
 	GameEvents.connect("dead", self, "dead")
 	GameEvents.connect("game_over", self, "game_over")
