@@ -5,6 +5,10 @@ signal lost
 signal respawn
 signal checkpoint
 
+signal add_live
+
+func emit_add_live() -> void:
+	emit_signal("add_live")
 
 func emit_dead() -> void:
 	emit_signal("dead")

@@ -17,6 +17,7 @@ func _ready():
 	GameEvents.connect("dead", self, "dead")
 	GameEvents.connect("lost", self, "lost")
 	GameEvents.connect("respawn", self, "respawn")
+	GameEvents.connect("add_live", self, "add_live")
 	current_checkpoint = translation + Vector3.UP * spawn_up_offset
 
 func _physics_process(delta):
@@ -46,6 +47,10 @@ func get_move_direciton()->Vector3:
 		direction/=2
 	return direction
 
+func add_live():
+	lives+=1
+	print("lives: ",lives)
+
 func respawn():
 	mode = MODE_STATIC
 	translation = current_checkpoint
@@ -54,7 +59,7 @@ func respawn():
 	
 func lost():
 	print("You lost!")
-	set_physics_process(false)
+	queue_free()
 	
 func dead():
 	lives-=1
