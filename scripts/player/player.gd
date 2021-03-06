@@ -6,13 +6,14 @@ onready var sphere_mesh := $CollisionShape/MeshInstance.mesh as SphereMesh
 export var speed := 7000.0
 export var jump_power := 4000.0
 
-export var max_lives_count := 3
-var lives := max_lives_count
+export var start_lives_count := 3
+var lives := start_lives_count
 
 var current_checkpoint := Vector3(0,1,0)
 var spawn_up_offset := 0.1
 
 func _ready():
+	lives = start_lives_count
 	GameEvents.connect("checkpoint", self, "set_current_checkpoint")
 	GameEvents.connect("dead", self, "dead")
 	GameEvents.connect("lost", self, "lost")
