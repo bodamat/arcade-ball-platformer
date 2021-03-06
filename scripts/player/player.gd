@@ -6,6 +6,7 @@ onready var sphere_mesh := $CollisionShape/MeshInstance.mesh as SphereMesh
 export var speed := 7000.0
 export var jump_power := 4000.0
 
+export var max_lives_count := 5
 export var start_lives_count := 3
 var lives := start_lives_count
 
@@ -16,7 +17,7 @@ func _ready():
 	lives = start_lives_count
 	GameEvents.connect("checkpoint", self, "set_current_checkpoint")
 	GameEvents.connect("dead", self, "dead")
-	GameEvents.connect("lost", self, "lost")
+	GameEvents.connect("game_over", self, "game_over")
 	GameEvents.connect("respawn", self, "respawn")
 	GameEvents.connect("add_live", self, "add_live")
 	current_checkpoint = translation + Vector3.UP * spawn_up_offset
@@ -49,7 +50,8 @@ func get_move_direciton()->Vector3:
 	return direction
 
 func add_live():
-	lives+=1
+	if lives<max_lives_count:
+		lives+=1
 	print("lives: ",lives)
 
 func respawn():
@@ -58,13 +60,13 @@ func respawn():
 	mode = MODE_RIGID
 	print("lives: ",lives)
 	
-func lost():
-	print("You lost!")
+func game_over():
+	print("Game over!")
 	queue_free()
 	
 func dead():
 	lives-=1
 	if lives<=0:
-		GameEvents.emit_lost()
+		GameEvents.emit_game_over()
 	else:
 		GameEvents.emit_respawn()

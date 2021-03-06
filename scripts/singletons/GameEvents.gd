@@ -1,7 +1,7 @@
 extends Node
 
 signal dead
-signal lost
+signal game_over
 signal respawn
 signal checkpoint
 
@@ -13,8 +13,8 @@ func emit_add_live() -> void:
 func emit_dead() -> void:
 	emit_signal("dead")
 	
-func emit_lost() -> void:
-	emit_signal("lost")
+func emit_game_over() -> void:
+	emit_signal("game_over")
 	
 func emit_respawn() -> void:
 	emit_signal("respawn")
