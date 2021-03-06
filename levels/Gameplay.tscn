@@ -51,7 +51,10 @@ shadow_enabled = true
 [node name="items" type="Spatial" parent="."]
 
 [node name="LiveItem" parent="items" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.735859, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.318002, 0 )
+
+[node name="LiveItem2" parent="items" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8044, 0.0202522, -19.482 )
 
 [node name="Platforms" type="Spatial" parent="."]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
