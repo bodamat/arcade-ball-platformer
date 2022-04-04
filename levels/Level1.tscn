@@ -29,11 +29,6 @@ _data = {
 
 [node name="ball" parent="." instance=ExtResource( 6 )]
 
-[node name="templates" type="Spatial" parent="."]
-
-[node name="FinishPlatform2" parent="templates" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 10, -79 )
-
 [node name="platforms" type="Spatial" parent="."]
 
 [node name="Platform2" parent="platforms" instance=ExtResource( 4 )]
@@ -348,3 +343,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 6, -30 )
 
 [node name="CheckpointPlatform3" parent="platforms" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 10, -63 )
+
+[node name="FinishPlatform2" parent="platforms" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 10, -79 )
