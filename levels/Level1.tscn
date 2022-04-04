@@ -1,3 +1,350 @@
-[gd_scene format=2]
+[gd_scene load_steps=10 format=2]
 
-[node name="Level1" type="Spatial"]
+[ext_resource path="res://scenes/platforms/FinishPlatform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/platforms/FallPlatform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/platforms/MovePlatform.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/platforms/Platform.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/platforms/CheckpointPlatform.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/ball.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Curve3D" id=1]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0017643, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -8, 0, 0, 0, 0, 0, 0, 0, 10, -8, 0, 0, 0, 0, 0, 0, -22, 11, -8 ),
+"tilts": PoolRealArray( 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=2]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0017643, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0 ),
+"tilts": PoolRealArray( 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=3]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0017643, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, -7 ),
+"tilts": PoolRealArray( 0, 0 )
+}
+
+[node name="level1" type="Spatial"]
+
+[node name="ball" parent="." instance=ExtResource( 6 )]
+
+[node name="templates" type="Spatial" parent="."]
+
+[node name="FinishPlatform2" parent="templates" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 10, -79 )
+
+[node name="platforms" type="Spatial" parent="."]
+
+[node name="Platform2" parent="platforms" instance=ExtResource( 4 )]
+
+[node name="Platform3" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
+
+[node name="Platform4" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4 )
+
+[node name="Platform5" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6 )
+
+[node name="Platform6" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8 )
+
+[node name="Platform8" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 6, -30 )
+
+[node name="Platform9" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 6, -30 )
+
+[node name="Platform10" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 6, -30 )
+
+[node name="Platform11" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -33, 6, -29 )
+
+[node name="Platform12" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -35, 6, -29 )
+
+[node name="Platform13" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -37, 6, -29 )
+
+[node name="Platform14" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -39, 6, -29 )
+
+[node name="Platform17" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, -45, 6, -31 )
+
+[node name="Platform18" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, -47, 6, -31 )
+
+[node name="Platform19" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, -49, 6, -31 )
+
+[node name="Platform20" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, -51, 6, -31 )
+
+[node name="Platform15" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -41, 6, -30 )
+
+[node name="Platform16" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43, 6, -30 )
+
+[node name="Platform21" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -53, 6, -30 )
+
+[node name="Platform22" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55, 6, -30 )
+
+[node name="Platform23" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55, 10, -42 )
+
+[node name="Platform24" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -53, 10, -44 )
+
+[node name="Platform25" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -51, 10, -46 )
+
+[node name="Platform27" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -57, 10, -44 )
+
+[node name="Platform28" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55, 10, -46 )
+
+[node name="Platform29" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -53, 10, -48 )
+
+[node name="Platform37" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -59, 10, -46 )
+
+[node name="Platform38" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -57, 10, -48 )
+
+[node name="Platform40" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -59, 10, -50 )
+
+[node name="Platform39" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55, 10, -50 )
+
+[node name="Platform30" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -51, 10, -50 )
+
+[node name="Platform31" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 10, -44 )
+
+[node name="Platform32" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47, 10, -46 )
+
+[node name="Platform33" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -53, 10, -40 )
+
+[node name="Platform34" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -51, 10, -42 )
+
+[node name="Platform41" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47, 10, -42 )
+
+[node name="Platform42" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 10, -40 )
+
+[node name="Platform35" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -57, 10, -40 )
+
+[node name="Platform36" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -59, 10, -42 )
+
+[node name="Platform26" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 10, -48 )
+
+[node name="Platform43" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47, 10, -50 )
+
+[node name="Platform44" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 10, -61 )
+
+[node name="Platform45" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 10, -77 )
+
+[node name="Platform46" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 10, -79 )
+
+[node name="Platform48" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 10, -77 )
+
+[node name="Platform7" parent="platforms" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, -20 )
+
+[node name="FallPlatform2" parent="platforms" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10 )
+
+[node name="FallPlatform13" parent="platforms" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 10, -65 )
+
+[node name="FallPlatform15" parent="platforms" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 10, -65 )
+
+[node name="FallPlatform16" parent="platforms" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 10, -65 )
+
+[node name="FallPlatform18" parent="platforms" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 10, -67 )
+
+[node name="FallPlatform20" parent="platforms" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 10, -67 )
+
+[node name="FallPlatform23" parent="platforms" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 10, -67 )
+
+[node name="FallPlatform25" parent="platforms" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 10, -69 )
+
+[node name="FallPlatform27" parent="platforms" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 10, -69 )
+
+[node name="FallPlatform28" parent="platforms" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 10, -69 )
+
+[node name="FallPlatform30" parent="platforms" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 10, -71 )
+
+[node name="FallPlatform32" parent="platforms" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 10, -71 )
+
+[node name="FallPlatform35" parent="platforms" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 10, -71 )
+
+[node name="FallPlatform37" parent="platforms" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 10, -73 )
+
+[node name="FallPlatform39" parent="platforms" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 10, -73 )
+
+[node name="FallPlatform40" parent="platforms" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 10, -73 )
+
+[node name="FallPlatform42" parent="platforms" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 10, -75 )
+
+[node name="FallPlatform44" parent="platforms" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 10, -75 )
+
+[node name="FallPlatform47" parent="platforms" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 10, -75 )
+
+[node name="FallPlatform3" parent="platforms" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -12 )
+
+[node name="FallPlatform4" parent="platforms" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -14 )
+
+[node name="FallPlatform5" parent="platforms" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -16 )
+
+[node name="FallPlatform6" parent="platforms" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, -18 )
+
+[node name="FallPlatform7" parent="platforms" instance=ExtResource( 2 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -55, 10, -40 )
+
+[node name="FallPlatform8" parent="platforms" instance=ExtResource( 2 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -55, 9, -38 )
+
+[node name="FallPlatform9" parent="platforms" instance=ExtResource( 2 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -55, 8, -36 )
+
+[node name="FallPlatform10" parent="platforms" instance=ExtResource( 2 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -55, 7, -34 )
+
+[node name="FallPlatform11" parent="platforms" instance=ExtResource( 2 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -55, 6, -32 )
+
+[node name="MovePlatform2" parent="platforms" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, -22 )
+curve = SubResource( 1 )
+speed = 3
+auto_play = true
+
+[node name="MovePlatform3" parent="platforms" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55, 4, -48 )
+curve = SubResource( 2 )
+auto_play = true
+
+[node name="MovePlatform4" parent="platforms" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -53, 4, -46 )
+curve = SubResource( 2 )
+auto_play = true
+
+[node name="MovePlatform5" parent="platforms" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -51, 4, -44 )
+curve = SubResource( 2 )
+auto_play = true
+
+[node name="MovePlatform11" parent="platforms" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -53, 4, -42 )
+curve = SubResource( 2 )
+auto_play = true
+
+[node name="MovePlatform12" parent="platforms" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 4, -42 )
+curve = SubResource( 2 )
+auto_play = true
+
+[node name="MovePlatform13" parent="platforms" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 4, -46 )
+curve = SubResource( 2 )
+auto_play = true
+
+[node name="MovePlatform18" parent="platforms" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 10, -52 )
+curve = SubResource( 3 )
+auto_play = true
+
+[node name="MovePlatform14" parent="platforms" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 4, -50 )
+curve = SubResource( 2 )
+auto_play = true
+
+[node name="MovePlatform15" parent="platforms" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -53, 4, -50 )
+curve = SubResource( 2 )
+auto_play = true
+
+[node name="MovePlatform16" parent="platforms" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -57, 4, -50 )
+curve = SubResource( 2 )
+auto_play = true
+
+[node name="MovePlatform6" parent="platforms" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -51, 4, -48 )
+curve = SubResource( 2 )
+auto_play = true
+
+[node name="MovePlatform7" parent="platforms" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55, 4, -44 )
+curve = SubResource( 2 )
+auto_play = true
+
+[node name="MovePlatform8" parent="platforms" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -59, 4, -48 )
+curve = SubResource( 2 )
+auto_play = true
+
+[node name="MovePlatform9" parent="platforms" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -57, 4, -46 )
+curve = SubResource( 2 )
+auto_play = true
+
+[node name="MovePlatform10" parent="platforms" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -59, 4, -44 )
+curve = SubResource( 2 )
+auto_play = true
+
+[node name="MovePlatform17" parent="platforms" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -57, 4, -42 )
+curve = SubResource( 2 )
+auto_play = true
+
+[node name="CheckpointPlatform2" parent="platforms" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 6, -30 )
+
+[node name="CheckpointPlatform3" parent="platforms" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 10, -63 )
